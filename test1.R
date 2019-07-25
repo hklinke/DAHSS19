@@ -1,2 +1,4 @@
 This is surely a test to sync and push to github with a second invited user.
 This appears as "unknown" user
+changed .gitconfig name - no result, needs to be ack
+change in github app.
