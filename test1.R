@@ -1,1 +1,1 @@
-This is surely a test to sync and push to github with a second ivited user.
+This is surely a test to sync and push to github with a second invited user.
