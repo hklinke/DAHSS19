@@ -1,0 +1,2 @@
+#main
+message("Running main")
