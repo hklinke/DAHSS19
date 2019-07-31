@@ -37,3 +37,4 @@ rsconnect/
 
 #Our image folder
 images/
+.Rproj.user
