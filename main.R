@@ -1,19 +1,25 @@
 #main
 message("Running main")
 
-
 #Load data (from a URL)
+source("load_data.R")
 
 #URL images download them
-
-#get average color (optional) total, rgb
-
-#get dimensions of images
+source("load_images.R")
 
 #get creation date as numeric
+source("create_date.R")
+
+
+#get average color (optional) total, rgb
+#source("get_average.R")
+
+#get dimensions of images
+#source("get_dims.R")
 
 
 
 
 
-#source("load_data.R")
+
+
