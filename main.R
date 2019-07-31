@@ -1,13 +1,13 @@
 #main
 message("Running main")
 
-#Load data (from a URL)
+#Load data (from a URL)  Responsible: Qiuzi
 source("load_data.R")
 
-#URL images download them
+#URL images download them  Fernando
 source("load_images.R")
 
-#get creation date as numeric
+#get creation date as numeric   Victor
 source("create_date.R")
 
 
