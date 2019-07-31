@@ -35,5 +35,5 @@ vignettes/*.pdf
 # Shiny token, see https://shiny.rstudio.com/articles/shinyapps.html
 rsconnect/
 
-#Our image folder
-images/
+#Our image folder  HK
+images/*
