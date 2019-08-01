@@ -1,6 +1,6 @@
 #getimg_info.R
 
-for (i in 1:254) {
+for (i in 1:nrow(carmen_data_utf.8)) {
   name <- paste("images/", carmen_data_utf.8$work_ID[i], ".jpg", collapse = "", sep = "")
   img <- load.image(name)
   dimensions <- dim(img)
@@ -14,7 +14,7 @@ for (i in 1:254) {
                                               carmen_data_utf.8$green[i],
                                               carmen_data_utf.8$blue[i]))
   
-  message(round(i/254*100, digits = o), "%")
+  message(round(i/254*100, digits = 0), "%")
 }
 
 

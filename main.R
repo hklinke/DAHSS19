@@ -1,19 +1,18 @@
 #main
 
 #install packages
-install.packages("tidytext")
-install.packages("dplyr")
-library(tidytext)
-library(dplyr)
+install.packages("udpipe")
+library(udpipe)
+install.packages("stopwords")
+library(stopwords)
 install.packages("lexRankr")
 library(lexRankr)
 install.packages("imager")
 library(imager)
 
-
 #initial definitions
-default_hashtag_1="#DAHSS19"
-default_hashtag_2="#Málaga"
+default_hashtag_1="DAHSS19"
+default_hashtag_2="Málaga"
 thyssen_handle="@thyssenmalaga"
 default_lat=36.721642
 default_long=-4.422424
