@@ -16,6 +16,7 @@ default_hashtag_2="Málaga"
 thyssen_handle="@thyssenmalaga"
 default_lat=36.721642
 default_long=-4.422424
+server_url=""
 
 #Load data (from a URL) Responsible: Qiuzi
 source("load_data.R")
@@ -50,11 +51,13 @@ source("create_flashcards.R")
   #resize and place artwork on it
   #place text
  
+#Add intro tweet for Fri, 18:00 for testing reasons
+
 #Create flashcars URL
 
-#Create Date, time: every day starting Aug 3,  10:00
+#Create Date, time: every day starting Sat, Aug 3,  10:00
 
 #Create a new data table
-#Export to TSV file
+#Export to TSV file (UTF-8)
 
 
