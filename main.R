@@ -7,6 +7,8 @@ library(tidytext)
 library(dplyr)
 install.packages("lexRankr")
 library(lexRankr)
+install.packages("imager")
+library(imager)
 
 
 #initial definitions
