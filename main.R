@@ -5,6 +5,9 @@ install.packages("tidytext")
 install.packages("dplyr")
 library(tidytext)
 library(dplyr)
+install.packages("lexRankr")
+library(lexRankr)
+
 
 #initial definitions
 default_hashtag="#DAHSS19"
