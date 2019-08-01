@@ -1,5 +1,10 @@
 #main
-message("Running main")
+
+#install packages
+install.packages("tidytext")
+install.packages("dplyr")
+library(tidytext)
+library(dplyr)
 
 #initial definitions
 default_hashtag="#DAHSS19"
