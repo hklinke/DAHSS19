@@ -40,8 +40,24 @@ source("create_summary.R")
 source("create_string.R")
 
 
-
 #get average color (optional) total, rgb
 #source("get_average.R")
+
 #get dimensions of images
 #source("get_dims.R")
+
+#Create flashcards 
+
+  #create blank image with 16:9, 1024x512 (?), background: average color (optional)
+
+  #resize and place artwork on it
+
+  #place text
+ 
+#Create image URL
+
+#Create Date, time: every day starting Aug 3,  10:00
+
+#Create TSV
+
+
