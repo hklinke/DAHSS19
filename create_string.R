@@ -1,6 +1,5 @@
 #create_string.R
-install.packages("stopwords")
-library(stopwords)
+
 stopwords <- data_stopwords_stopwordsiso$en
 
 
