@@ -64,7 +64,7 @@ addCopyright = function(image, copyright){
   return(new_image)
 }
 
-image = reshapeImage("images/CTB.1996.16.jpg", 2200, 3243, "orange")
+image = reshapeImage("images/CTB.1996.16.jpg", 2200, 3243, "#000000")
 
 print(image)
 
