@@ -1,9 +1,5 @@
 #getimg_info.R
 
-install.packages("imager")
-library(imager)
-
-
 for (i in 1:254) {
   name <- paste("images/", carmen_data_utf.8$work_ID[i], ".jpg", collapse = "", sep = "")
   img <- load.image(name)
@@ -18,7 +14,7 @@ for (i in 1:254) {
                                               carmen_data_utf.8$green[i],
                                               carmen_data_utf.8$blue[i]))
   
-  message(i/254*100)
+  message(round(i/254*100, digits = o), "%")
 }
 
 
