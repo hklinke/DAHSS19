@@ -10,7 +10,8 @@ library(lexRankr)
 
 
 #initial definitions
-default_hashtag="#DAHSS19"
+default_hashtag_1="#DAHSS19"
+default_hashtag_2="#Málaga"
 thyssen_handle="@thyssenmalaga"
 default_lat=36.721642
 default_long=-4.422424
