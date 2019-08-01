@@ -42,10 +42,10 @@ summary(
 
 #example
 carmen_data_utf.8$summary[1]
-nchar(carmen_data_utf.8$work_decription[1])
+nchar(carmen_data_utf.8$summary[1])
 
 carmen_data_utf.8$summary[106]
-nchar(carmen_data_utf.8$work_decription[106])
+nchar(carmen_data_utf.8$summary[106])
 
 # Check which are empty, shortest
 subset(carmen_data_utf.8,nchar(carmen_data_utf.8$work_decription)<10, 
@@ -60,6 +60,7 @@ subset(carmen_data_utf.8,nchar(carmen_data_utf.8$work_decription)<10,
 #192 The Betrothal of the Virgin and Saint Joseph               -  
 
 #how to deal with empty lines?
+#Use default sentence or leve blank?
 
 # Check which are the longest
 subset(carmen_data_utf.8,nchar(carmen_data_utf.8$summary)>900, select=c(work_title,summary))
