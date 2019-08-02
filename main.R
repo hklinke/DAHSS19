@@ -46,6 +46,9 @@ source("create_summary.R")
 #Create tweet string with max. characters 	Victor
 source("create_string.R")
 
+#save data frame
+saveRDS(carmen_data_utf.8, file = "carmen_data_utf.8.rds")
+
 #Create flashcards 
 source("create_flashcards.R")
 
