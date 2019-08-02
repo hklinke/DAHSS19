@@ -83,7 +83,7 @@ addTextLandscape = function(image, summary, textColor){
 
 addTextPortrait = function(image, summary, textColor){
   summary_lines = strwrap(summary, 58)
-  startPoint = 25
+  startPoint = as.integer((512 - length(summary_lines)*20)/2)
   
   for(line in summary_lines) {
     linePoint = paste("+20", as.character(startPoint), sep = "+")
