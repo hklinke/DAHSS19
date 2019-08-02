@@ -37,6 +37,7 @@ rsconnect/
 
 #Our image folder  HK
 images/*
+flashcards/*
 
 #Additional files to ignore
 spanish-gsd-ud-2.4-190531.udpipe

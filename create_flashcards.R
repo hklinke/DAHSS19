@@ -1,7 +1,3 @@
-install.packages("magick")
-
-library(magick)
-
 getMarginsLandscape = function(img_width, img_height){
   if(img_width/1014 > img_height/379) {
     x_margin = 5
@@ -64,10 +60,50 @@ addCopyright = function(image, copyright){
   return(new_image)
 }
 
-image = reshapeImage("images/CTB.1996.16.jpg", 2200, 3243, "#000000")
+addTextLandscape = function(image, summary, textColor){
+  summary_lines = strwrap(summary, 110)
+  startPoint = 400
+  
+  for(line in summary_lines) {
+    linePoint = paste("+25", as.character(startPoint), sep = "+")
+    
+    image = image_annotate(image, line, size = 20, color = textColor, location = linePoint)
+    
+    startPoint = startPoint + 30
+  }
+  
+  return(image)
+}
 
-print(image)
+addTextPortrait = function(image, summary, textColor){
+  summary_lines = strwrap(summary, 55)
+  startPoint = 25
+  
+  for(line in summary_lines) {
+    linePoint = paste("+20", as.character(startPoint), sep = "+")
+    
+    image = image_annotate(image, line, size = 20, color = textColor, location = linePoint)
+    
+    startPoint = startPoint + 30
+  }
+  
+  return(image)
+}
 
-image = addCopyright(image, "Copyright whatever")
+addText =  function(image, img_width, img_height, summary, color){
+  if(img_width > img_height) {
+    return(addTextLandscape(image, summary, color))
+  } else {
+    return(addTextPortrait(image, summary, color))
+  }
+}
 
-print(image)
+processImage = function(img_path, img_width, img_height, summary, copyright, background_color, text_color) {
+  image = reshapeImage(img_path, img_width, img_height, background_color)
+  image = addCopyright(image, copyright)
+  image = addText(image, img_width, img_height, summary, text_color)
+  
+  image_write(image, path = gsub("images", "flashcards", img_path), format = "jpg")
+} 
+
+processImage("images/CTB.1989.7.jpg", 2200, 3277, "This is a cool summary", "Copyright", "orange", "black")

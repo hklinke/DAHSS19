@@ -9,6 +9,8 @@ install.packages("lexRankr")
 library(lexRankr)
 install.packages("imager")
 library(imager)
+install.packages("magick")
+library(magick)
 
 #initial definitions
 default_hashtag_1="DAHSS19"
