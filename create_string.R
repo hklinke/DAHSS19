@@ -8,7 +8,7 @@ generateTweetText = function(artist, title, question, word1, word2, link) {
   hashtag2 = paste("#", word2, sep="")
   question_and_answer = paste(question, hashtag1, hashtag2, sep = " ")
   
-  tweet_text = paste(artist, title, thyssen_handle, question_and_answer, link, sep = "\n")
+  tweet_text = paste(artist, title, thyssen_handle, question_and_answer, link, sep = "\\n") #escape twice
 }
 
 artists = carmen_data_utf.8$artist.list
