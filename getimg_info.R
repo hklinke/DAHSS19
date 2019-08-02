@@ -5,8 +5,8 @@ for (i in 1:nrow(carmen_data_utf.8)) {
   img <- load.image(name)
   dimensions <- dim(img)
   
-  carmen_data_utf.8$height[i] <- dimensions[1]
-  carmen_data_utf.8$width[i] <- dimensions[2]
+  carmen_data_utf.8$width[i] <- dimensions[1]
+  carmen_data_utf.8$height[i] <- dimensions[2]
   carmen_data_utf.8$red[i] <- mean(R(img))
   carmen_data_utf.8$green[i] <- mean(G(img))
   carmen_data_utf.8$blue[i] <- mean(B(img))
