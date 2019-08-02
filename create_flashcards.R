@@ -62,6 +62,12 @@ addCopyright = function(image, copyright, text_color){
 
 addTextLandscape = function(image, summary, textColor){
   summary_lines = strwrap(summary, 130)
+  
+  if(length(summary_lines) > 5) {
+    summary_lines = summary_lines[1:4]
+    summary_lines[5] = "[...]"
+  }
+  
   startPoint = 400
   
   for(line in summary_lines) {
