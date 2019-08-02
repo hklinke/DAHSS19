@@ -147,6 +147,8 @@ for(i in 1:nrow(carmen_data_utf.8)){
                copyrights[i], 
                getHexColor(red_values[i], green_values[i], blue_values[i]), 
                img_text_color)
+  
+  message(i)
 }
 
 
