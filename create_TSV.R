@@ -21,6 +21,8 @@ publication_dates <- paste(c(2:31, rep(c(1:30, 1:31), 2), 1:31, 1:29, 1:31, 1:13
                            c(rep(2019, 152), rep(2020, 104)), 
                            sep = ".")
 ThyssenMlgBot$Date <- publication_dates
+ThyssenMlgBot$Longitude=default_long
+ThyssenMlgBot$Latitude=default_lat
 
 #Write TSV
-write.table(ThyssenMlgBot, file='ThyssenMlgBot.tsv', quote=FALSE, sep='\t')
+write.table(ThyssenMlgBot, file='ThyssenMlgBot.tsv', quote=FALSE, sep='\t', row.names = FALSE)
