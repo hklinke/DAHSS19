@@ -16,7 +16,7 @@ default_hashtag_2="Málaga"
 thyssen_handle="@thyssenmalaga"
 default_lat=36.721642
 default_long=-4.422424
-server_url=""
+server_url="http://harald-klinke.de/proj_DAHSS19/"
 
 #Load data (from a URL) Responsible: Qiuzi
 source("load_data.R")
