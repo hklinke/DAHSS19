@@ -52,6 +52,7 @@ source("create_flashcards.R")
   #place text
  
 #Add intro tweet for Fri, 18:00 for testing reasons
+#Add last tweet
 
 #Create flashcars URL
 
