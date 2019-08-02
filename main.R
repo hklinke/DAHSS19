@@ -16,8 +16,8 @@ library(magick)
 default_hashtag_1="DAHSS19"
 default_hashtag_2="Málaga"
 thyssen_handle="@thyssenmalaga"
-default_lat=36.721642
-default_long=-4.422424
+default_lat=36.72164
+default_long=-4.42242
 server_url="http://harald-klinke.de/proj_DAHSS19/"
 
 #Load data (from a URL) Responsible: Qiuzi
@@ -60,7 +60,9 @@ source("create_flashcards.R")
 #Create a new data table
 #Add intro tweet for Fri, 18:00 for testing reasons
 #Add last tweet
-
 #Export to TSV file (UTF-8)
+source("create_TSV.R")
+
+
 
 
