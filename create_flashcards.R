@@ -1,7 +1,7 @@
 getMarginsLandscape = function(img_width, img_height){
   if(img_width/1014 > img_height/379) {
     x_margin = 5
-    y_margin = as.integer((512 - img_height*1014/img_width)/2)
+    y_margin = as.integer((379 - img_height*1014/img_width)/2) + 128
   } else {
     x_margin = as.integer((1024 - img_width*379/img_height)/2)
     y_margin = 128
