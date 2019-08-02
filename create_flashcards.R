@@ -54,37 +54,37 @@ reshapeImage =  function(img_path, img_width, img_height, color){
   }
 }
 
-addCopyright = function(image, copyright){
-  new_image = image_annotate(image, copyright, size = 8, color = "white", boxcolor = "black", location = "+5+500")
+addCopyright = function(image, copyright, text_color){
+  new_image = image_annotate(image, copyright, size = 9, color = text_color, location = "+5+500")
   
   return(new_image)
 }
 
 addTextLandscape = function(image, summary, textColor){
-  summary_lines = strwrap(summary, 110)
+  summary_lines = strwrap(summary, 130)
   startPoint = 400
   
   for(line in summary_lines) {
     linePoint = paste("+25", as.character(startPoint), sep = "+")
     
-    image = image_annotate(image, line, size = 20, color = textColor, location = linePoint)
+    image = image_annotate(image, line, size = 16, color = textColor, location = linePoint)
     
-    startPoint = startPoint + 30
+    startPoint = startPoint + 20
   }
   
   return(image)
 }
 
 addTextPortrait = function(image, summary, textColor){
-  summary_lines = strwrap(summary, 55)
+  summary_lines = strwrap(summary, 58)
   startPoint = 25
   
   for(line in summary_lines) {
     linePoint = paste("+20", as.character(startPoint), sep = "+")
     
-    image = image_annotate(image, line, size = 20, color = textColor, location = linePoint)
+    image = image_annotate(image, line, size = 16, color = textColor, location = linePoint)
     
-    startPoint = startPoint + 30
+    startPoint = startPoint + 20
   }
   
   return(image)
@@ -100,10 +100,47 @@ addText =  function(image, img_width, img_height, summary, color){
 
 processImage = function(img_path, img_width, img_height, summary, copyright, background_color, text_color) {
   image = reshapeImage(img_path, img_width, img_height, background_color)
-  image = addCopyright(image, copyright)
+  image = addCopyright(image, copyright, text_color)
   image = addText(image, img_width, img_height, summary, text_color)
   
   image_write(image, path = gsub("images", "flashcards", img_path), format = "jpg")
 } 
 
-processImage("images/CTB.1989.7.jpg", 2200, 3277, "This is a cool summary", "Copyright", "orange", "black")
+getHexColor = function(r, g, b){
+  hex_red = as.character(as.hexmode(as.integer(r*255)))
+  hex_green = as.character(as.hexmode(as.integer(g*255)))
+  hex_blue = as.character(as.hexmode(as.integer(b*255)))
+  
+  hex_code = paste("#", hex_red, hex_green, hex_blue, sep = "")
+  return(hex_code)
+  
+}
+
+paths = paste(paste("images/", carmen_data_utf.8$work_ID, sep = ""), "jpg", sep = ".")
+widths = carmen_data_utf.8$width
+heights = carmen_data_utf.8$height
+summaries = carmen_data_utf.8$summary
+copyrights = carmen_data_utf.8$work_copyright
+red_values = carmen_data_utf.8$red
+green_values = carmen_data_utf.8$green
+blue_values = carmen_data_utf.8$blue
+brights = carmen_data_utf.8$avg_brightness
+
+
+for(i in 1:nrow(carmen_data_utf.8)){
+  img_text_color = if(brights[i] <= 0.5) {
+    "white"
+  } else {
+    "black"
+  }
+  
+  processImage(paths[i], 
+               widths[i], 
+               heights[i], 
+               summaries[i], 
+               copyrights[i], 
+               getHexColor(red_values[i], green_values[i], blue_values[i]), 
+               img_text_color)
+}
+
+
