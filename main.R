@@ -51,14 +51,14 @@ source("create_flashcards.R")
   #resize and place artwork on it
   #place text
  
-#Add intro tweet for Fri, 18:00 for testing reasons
-#Add last tweet
-
-#Create flashcars URL
+#Create flashcards URL
 
 #Create Date, time: every day starting Sat, Aug 3,  10:00
 
 #Create a new data table
+#Add intro tweet for Fri, 18:00 for testing reasons
+#Add last tweet
+
 #Export to TSV file (UTF-8)
 
 
