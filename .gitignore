@@ -42,5 +42,6 @@ flashcards/*
 #Additional files to ignore
 spanish-gsd-ud-2.4-190531.udpipe
 english-ewt-ud-2.4-190531.udpipe
+ThyssenMlgBot.tsv
 
 .Rproj.user
