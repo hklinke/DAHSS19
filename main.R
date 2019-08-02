@@ -23,6 +23,9 @@ server_url="http://harald-klinke.de/proj_DAHSS19/"
 #Load data (from a URL) Responsible: Qiuzi
 source("load_data.R")
 
+#or if already created
+#load(file = "carmen_data_utf.8.rds")
+
 #URL images download    Fernando
 source("load_images.R")
 
@@ -50,19 +53,16 @@ source("create_string.R")
 saveRDS(carmen_data_utf.8, file = "carmen_data_utf.8.rds")
 
 #Create flashcards 
-source("create_flashcards.R")
-
-  #create blank image with 16:9, 1024x512 (?), background: average color (optional)
+  #create blank image with 16:9, 1024x512, background: average color 
   #resize and place artwork on it
   #place text
- 
-#Create flashcards URL
+source("create_flashcards.R")
 
-#Create Date, time: every day starting Sat, Aug 3,  10:00
-
-#Create a new data table
-#Add intro tweet for Fri, 18:00 for testing reasons
-#Add last tweet
+  #Create a new data table
+  #Add intro tweet for Fri, 18:00 for testing reasons
+  #Add last tweet
+  #Create flashcards URL
+  #Create Date, time: every day starting Sat, Aug 3,  10:00
 #Export to TSV file (UTF-8)
 source("create_TSV.R")
 
