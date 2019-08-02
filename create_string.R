@@ -4,9 +4,9 @@ stopwords <- data_stopwords_stopwordsiso$en
 
 
 generateTweetText = function(artist, title, question, word1, word2, link) {
-  hashtag1 = paste("#", word1, "")
-  hashtag2 = paste("#", word2, "")
-  question_and_answer = paste(question, hashtag1, hashtag2, " ")
+  hashtag1 = paste("#", word1, sep="")
+  hashtag2 = paste("#", word2, sep="")
+  question_and_answer = paste(question, hashtag1, hashtag2, sep = " ")
   
   tweet_text = paste(artist, title, thyssen_handle, question_and_answer, link, sep = "\n")
 }
