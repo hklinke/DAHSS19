@@ -10,6 +10,7 @@ for (i in 1:max) {
   download.file(url = carmen_data_utf.8$work_image_URL.href[i], 
                 destfile = filename,  
                 mode = "wb")
-  print(i/max*100)
+  
+  message(round(i/max*100, digits = 0), "%")
 }
 
