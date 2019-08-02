@@ -1,10 +1,26 @@
+flashcard_width = 2048
+flashcard_height = 1024
+margin = 5
+
+landscape_width = 2038
+landscape_height = 379*2
+portrait_width = 1014
+portrait_height = 1014
+
+characters_per_line_landscape = 130
+max_lines_landscape = 5
+characters_per_line_portrait = 58
+copyright_size = 18
+font_size = 32
+pixels_per_line = 40
+
 getMarginsLandscape = function(img_width, img_height){
-  if(img_width/1014 > img_height/379) {
-    x_margin = 5
-    y_margin = as.integer((379 - img_height*1014/img_width)/2) + 128
+  if(img_width/landscape_width > img_height/landscape_height) {
+    x_margin = as.integer((flashcard_width - landscape_width)/2)
+    y_margin = as.integer((landscape_height - img_height*landscape_width/img_width)/2) + flashcard_height - landscape_height + margin
   } else {
-    x_margin = as.integer((1024 - img_width*379/img_height)/2)
-    y_margin = 128
+    x_margin = as.integer((flashcard_width - img_width*landscape_height/img_height)/2)
+    y_margin = flashcard_height - landscape_height
   }
   
   x_margin = as.character(as.integer(x_margin))
@@ -16,10 +32,10 @@ getMarginsLandscape = function(img_width, img_height){
 }
 
 getMarginsPortrait = function(img_width, img_height){
-  x_margin = (1-img_width/img_height)*251 + 522
+  x_margin = margin + as.integer(flashcard_width/2) + as.integer((portrait_width*(1 - img_width/img_height))/2)
   
   x_margin = as.character(as.integer(x_margin))
-  y_margin = as.character(as.integer(5))
+  y_margin = as.character(as.integer(margin))
   
   dimensions = paste(x_margin, y_margin, sep = "x")
   
@@ -29,9 +45,13 @@ getMarginsPortrait = function(img_width, img_height){
 reshapeImageLandscape = function(img_path, img_width, img_height, color){
   painting = image_read(path = img_path)
   
-  new_image = image_scale(painting, "1014x379")
+  scale = paste(landscape_width, landscape_height, sep = "x")
+  flashcard_dim = paste(flashcard_width, flashcard_height, sep = "x")
+  offset = paste("+0", flashcard_height - landscape_height - 2*margin, sep = "+")
+  
+  new_image = image_scale(painting, scale)
   new_image = image_border(new_image, color, getMarginsLandscape(img_width, img_height))
-  new_image = image_crop(new_image, "1024x512 +0+123")
+  new_image = image_crop(new_image, paste(flashcard_dim, offset, sep = " "))
   
   return(new_image)
 }
@@ -39,9 +59,12 @@ reshapeImageLandscape = function(img_path, img_width, img_height, color){
 reshapeImagePortrait = function(img_path, img_width, img_height, color){
   painting = image_read(path = img_path)
   
-  new_image = image_scale(painting, "502x502")
+  scale = paste(portrait_width, portrait_height, sep = "x")
+  flashcard_dim = paste(flashcard_width, flashcard_height, sep = "x")
+  
+  new_image = image_scale(painting, scale)
   new_image = image_border(new_image, color, getMarginsPortrait(img_width, img_height))
-  new_image = image_crop(new_image, "1024x512")
+  new_image = image_crop(new_image, flashcard_dim)
   
   return(new_image)
 }
@@ -55,42 +78,44 @@ reshapeImage =  function(img_path, img_width, img_height, color){
 }
 
 addCopyright = function(image, copyright, text_color){
-  new_image = image_annotate(image, copyright, size = 9, color = text_color, location = "+5+500")
+  copyright_pos = paste("", margin, flashcard_height-4*margin, sep = "+")
+  
+  new_image = image_annotate(image, copyright, size = copyright_size, color = text_color, location = copyright_pos)
   
   return(new_image)
 }
 
 addTextLandscape = function(image, summary, textColor){
-  summary_lines = strwrap(summary, 130)
+  summary_lines = strwrap(summary, characters_per_line_landscape)
   
-  if(length(summary_lines) > 5) {
-    summary_lines = summary_lines[1:4]
-    summary_lines[5] = "[...]"
+  if(length(summary_lines) > max_lines_landscape) {
+    summary_lines = summary_lines[1:(max_lines_landscape-1)]
+    summary_lines[max_lines_landscape] = "[...]"
   }
   
-  startPoint = 400
+  startPoint = landscape_height + 4*margin
   
   for(line in summary_lines) {
     linePoint = paste("+25", as.character(startPoint), sep = "+")
     
-    image = image_annotate(image, line, size = 16, color = textColor, location = linePoint)
+    image = image_annotate(image, line, size = font_size, color = textColor, location = linePoint)
     
-    startPoint = startPoint + 20
+    startPoint = startPoint + pixes_per_line
   }
   
   return(image)
 }
 
 addTextPortrait = function(image, summary, textColor){
-  summary_lines = strwrap(summary, 58)
-  startPoint = as.integer((512 - length(summary_lines)*20)/2)
+  summary_lines = strwrap(summary, characters_per_line_portrait)
+  startPoint = as.integer((flashcard_height - length(summary_lines)*pixels_per_line)/2)
   
   for(line in summary_lines) {
     linePoint = paste("+20", as.character(startPoint), sep = "+")
     
-    image = image_annotate(image, line, size = 16, color = textColor, location = linePoint)
+    image = image_annotate(image, line, size = font_size, color = textColor, location = linePoint)
     
-    startPoint = startPoint + 20
+    startPoint = startPoint + pixels_per_line
   }
   
   return(image)
