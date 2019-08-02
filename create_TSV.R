@@ -22,8 +22,5 @@ publication_dates <- paste(c(2:31, rep(c(1:30, 1:31), 2), 1:31, 1:29, 1:31, 1:13
                            sep = ".")
 ThyssenMlgBot$Date <- publication_dates
 
-
-
-
-
-write.table(test, file='ThyssenMlgBot.tsv', quote=FALSE, sep='\t')
+#Write TSV
+write.table(ThyssenMlgBot, file='ThyssenMlgBot.tsv', quote=FALSE, sep='\t')
