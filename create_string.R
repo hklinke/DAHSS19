@@ -21,10 +21,19 @@ carmen_data_utf.8$keyword_2[which(carmen_data_utf.8$keyword_2 %in% stopwords == 
 carmen_data_utf.8$keyword_1[is.na(carmen_data_utf.8$keyword_1)] <- default_hashtag_1
 carmen_data_utf.8$keyword_2[is.na(carmen_data_utf.8$keyword_2)] <- default_hashtag_2
 
+<<<<<<< HEAD
 word1 = carmen_data_utf.8$keyword_1  #carmen_data_utf.8$word
 word2 = carmen_data_utf.8$keyword_2
 links = carmen_data_utf.8$work_link.href
 
 carmen_data_utf.8$tweet_body = generateTweetText(artists, titles, questions, word1, word2, links)
+=======
+word_1 = carmen_data_utf.8$keyword_1  #carmen_data_utf.8$word
+word_2 = carmen_data_utf.8$keyword_2  #carmen_data_utf.8$word
+
+links = carmen_data_utf.8$work_link.href
+
+carmen_data_utf.8$tweet_body = generateTweetText(artists, titles, questions, word_1, word_2, links)
+>>>>>>> 0e8b44410ad854db0c5a2f4ae9fd574777fcb672
 
 carmen_data_utf.8$tweet_length = nchar(carmen_data_utf.8$tweet_body)
