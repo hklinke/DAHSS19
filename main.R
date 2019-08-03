@@ -24,7 +24,7 @@ server_url="http://harald-klinke.de/proj_DAHSS19/"
 source("load_data.R")
 
 #or if already created
-#load(file = "carmen_data_utf.8.rds")
+#carmen_data_utf.8=readRDS("carmen_data_utf.8.rds")
 
 #URL images download    Fernando
 source("load_images.R")
