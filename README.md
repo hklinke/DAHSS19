@@ -7,5 +7,5 @@ We have been using Natural language processing (NLP) to create hashtags and summ
 
 This bot was created by <a href="https://twitter.com/next_autumn">Qiuzi Guo</a>, <a href="https://twitter.com/victorcasasm">Víctor Casas Moreno</a>, <a href="https://twitter.com/fdomuma">Fernando Muñoz Martín</a> and <a href="https://twitter.com/HxxxKxxx">Harald Klinke</a>.
 
-<A HREF="https://docs.google.com/presentation/d/1MugeT8umURc3MrXA9MWbevwHzlksmUxH8gPYb4oYwHw/edit?usp=present">Public presentation on the Tweetbot</A>
+<A HREF="https://docs.google.com/presentation/d/1MugeT8umURc3MrXA9MWbevwHzlksmUxH8gPYb4oYwHw/present?usp=present">Public presentation on the Tweetbot</A>
 
