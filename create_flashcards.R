@@ -147,7 +147,7 @@ getHexColor = function(r, g, b){
   
 }
 
-paths = paste(paste("images/", carmen_data_utf.8$work_ID, sep = ""), "jpg", sep = ".")
+paths = paste(paste(folder_images, carmen_data_utf.8$work_ID, sep = ""), "jpg", sep = ".")
 widths = carmen_data_utf.8$width
 heights = carmen_data_utf.8$height
 summaries = carmen_data_utf.8$summary
