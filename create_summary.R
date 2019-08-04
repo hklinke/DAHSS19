@@ -6,7 +6,7 @@
 for (i in 1:nrow(carmen_data_utf.8)) {
   if (nchar(carmen_data_utf.8$work_decription[i])>10) { #If too short or empty
     carmen_data_utf.8$summary[i] = 
-      lexRank(carmen_data_utf.8$work_decription[i],
+      lexRank(gsub("[\r\n]", " ", carmen_data_utf.8$work_decription[i]), #line breaks removed
               docId = 1, #only 1 article, not corpus
               n = 1, #return 1 sentences
               continuous = TRUE)$sentence
@@ -18,3 +18,4 @@ for (i in 1:nrow(carmen_data_utf.8)) {
   message(i, " *Empty*" )
   }
 }
+
